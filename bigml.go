@@ -20,7 +20,7 @@ func (ml *BigML) getAuthValues() url.Values {
 }
 
 func (ml *BigML) GetDataset(id string) (*Dataset, error) {
-	req, err := http.NewRequest("GET", "/dev/dataset/"+id+"?"+ml.getAuthValues().Encode(), nil)
+	req, err := http.NewRequest("GET", "https://bigml.io/dev/dataset/"+id+"?"+ml.getAuthValues().Encode(), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (ml *BigML) GetDataset(id string) (*Dataset, error) {
 }
 
 func (ml *BigML) GetDatasets() (*DatasetResponse, error) {
-	req, err := http.NewRequest("GET", "/dev/dataset?"+ml.getAuthValues().Encode(), nil)
+	req, err := http.NewRequest("GET", "https://bigml.io/dev/dataset?"+ml.getAuthValues().Encode(), nil)
 	if err != nil {
 		return nil, err
 	}
